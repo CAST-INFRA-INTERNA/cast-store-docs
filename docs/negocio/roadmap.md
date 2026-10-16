@@ -11,3 +11,22 @@ Pendências combinadas, em ordem de prioridade.
 | 5 | Limites de valor por colaborador | Com fluxo de aprovação de gestor |
 | 6 | SKU por tamanho | Estoque próprio por tamanho — o modelo de variações já suporta |
 | 7 | Segurança server-side | Validação de token Entra na API e permissões por perfil |
+
+## Modernização (strangler incremental)
+
+Sequência recomendada pelo [Assessment v29](../modernizacao/assessment-v29.md), preservando a vitrine:
+
+| Etapa | Estado (16/10/2026) |
+|---|---|
+| Contenção imediata (quick wins de segurança) | ⏳ A fazer |
+| Baseline em Git + testes de caracterização | 🟡 Novo backend com Git/CI e 187 testes; legado v29 ainda sem Git |
+| `data.js` público reduzido | ✅ Adaptador no FastAPI (desligado por padrão) |
+| Autenticação no servidor | 🟡 `admin/state` com chave provisória; Entra ID pendente |
+| Livro-razão + comandos granulares | ⏳ A fazer |
+| Fase 2b — pedido no servidor | ⛔ Bloqueada por DAT-01 e SEC-03 |
+| Paralelismo com reconciliação → cutover | ⏳ A fazer |
+
+**Próximo passo:** executar os scripts da Fase 2a em homologação (`.env.hml` com usuário SELECT),
+fazer o stamp da baseline com o DBA e validar a imagem Docker aprovada.
+
+Ideias fora das fases: [Backlog](../modernizacao/backlog.md).

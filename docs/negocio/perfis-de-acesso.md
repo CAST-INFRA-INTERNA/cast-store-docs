@@ -28,5 +28,10 @@ o painel abre em modo de configuração inicial (como admin, com aviso).
 > organizacional. Proteção forte = login O365 + restrição do `admin.html` no servidor;
 > na fase da API, as permissões passam a ser validáveis no servidor.
 
+> ⚠️ **Risco SEC-02 (assessment v29):** sem O365 e sem usuários locais configurados, o painel abre
+> como **administrador**. Mitigação imediata: restringir o `admin.html` no proxy. Alvo: Entra ID
+> validado na API, com App Roles `Store.Admin`, `Store.Manager`, `Store.Marketing` e
+> `Store.Purchasing` (ver [Backend FastAPI](../modernizacao/backend-fastapi.md)).
+
 Veja também: [Painel de Administração](../operacao/painel-admin.md) e
 [Backup e Segurança](../operacao/backup-e-seguranca.md).

@@ -50,12 +50,20 @@ window.CAST_STORE_DATA = {
 
 ```mermaid
 erDiagram
-  produtos ||--o{ produto_fotos : "1–5 fotos"
+  produtos ||--o{ produto_fotos : "1 a 5 fotos"
   grupos ||--o{ produtos : agrupa
   produtos ||--o{ estoque_movimentos : movimenta
-  notas ||--|{ nota_itens : contém
+  notas ||--|{ nota_itens : "contém"
   produtos ||--o{ nota_itens : "entra por"
-  pedidos ||--|{ pedido_itens : contém
+  pedidos ||--|{ pedido_itens : "contém"
   pedidos ||--o{ pedido_status_log : "trilha de status"
   produtos ||--o{ pedido_itens : "vendido em"
 ```
+
+## Achados de dados (homologação do backend FastAPI)
+
+- Um único `nota_itens.dist_json` inválido derruba todo o `GET /api/data.js` do Node (HTTP 500).
+- O Node converte custo `NULL` em 0.
+- O "último custo" depende de `registrada_em`, que é reescrito a cada publicação.
+- Produto sem movimentos é tratado como estoque ilimitado; o placeholder conta como foto.
+- Fotos ficam em base64 dentro do banco/JSON — o alvo é movê-las para arquivo ou storage.

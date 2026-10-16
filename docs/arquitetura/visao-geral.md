@@ -31,6 +31,10 @@ flowchart TB
 - **A conexão com o MySQL é exclusiva da API** (credenciais no `.env` do servidor);
   o navegador nunca acessa o banco.
 
+> ⚠️ **Riscos identificados no assessment v29:** o `data.js` é público e hoje leva perfis, hashes
+> de senha, cupons, custos e fornecedores (SEC-01); e "Publicar no banco" substitui o estado
+> inteiro a partir do rascunho local — o último a publicar vence (DAT-01).
+
 ## Comparativo
 
 | Aspecto | Modo arquivo (fase 1) | Modo banco (fase 2) |
@@ -39,6 +43,22 @@ flowchart TB
 | Publicação | Baixar `data.js` e substituir no servidor | Botão **Publicar no banco** (transação) |
 | Estoque online | Lista SharePoint (opcional) | MySQL com atomicidade real |
 | Papel atual | Plano B | Fluxo oficial |
+
+## Arquitetura-alvo (em construção)
+
+O novo backend FastAPI entra ao lado da API Node e assume as rotas aos poucos (strangler).
+A vitrine continua a mesma.
+
+```mermaid
+flowchart TB
+  N[Navegador<br/>vitrine v29 / painel] -- HTTPS --> W[Servidor web / proxy]
+  W -- rotas legadas --> A[API Node.js v29]
+  W -- /api/v1/* e /data.js público reduzido --> F[Backend FastAPI<br/>Python 3.12]
+  A --> DB[(MySQL)]
+  F -- usuário somente SELECT<br/>sessão READ ONLY --> DB
+```
+
+Detalhes e status: [Backend FastAPI](../modernizacao/backend-fastapi.md).
 
 Veja também: [Modelo de Dados](modelo-de-dados.md), [Endpoints da API](../referencias/endpoints.md)
 e [Instalação e Implantação](../operacao/instalacao.md).

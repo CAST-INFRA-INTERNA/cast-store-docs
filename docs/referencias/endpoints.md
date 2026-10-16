@@ -12,6 +12,22 @@ Base: `http(s)://<servidor>:8080` (ou via proxy no servidor web).
 | `GET /api/pedidos?email=` | — (fase 2b) | Pedidos do colaborador (Meus pedidos) |
 | `PATCH /api/pedidos/:numero` | X-Api-Key | Atualiza status (recebido/confirmado/pago/entregue/cancelado) |
 
+> ⚠️ **Estado em produção (assessment v29):** as rotas de pedido estão **sem autenticação** e
+> confiam no preço enviado pelo cliente (SEC-03); a `API_KEY` é única e fica no navegador do
+> admin (SEC-04). O `POST /api/pedidos` ainda não é chamado pela loja.
+
+## Novo backend (FastAPI · `/api/v1`)
+
+| Método e rota | Função |
+|---|---|
+| `GET /health/live` · `GET /health/ready` | Liveness e readiness |
+| `GET /api/v1/storefront/catalog` | Catálogo público, somente leitura |
+| `GET /api/v1/storefront/photos/{id}` | Fotos por URL |
+| `GET /data.js` | Adaptador público reduzido (desligado por padrão) |
+| `GET /api/v1/admin/state` | Provisório, `X-Admin-Read-Key`, proibido em produção |
+
+Detalhes em [Backend FastAPI](../modernizacao/backend-fastapi.md).
+
 ## Status de pedido
 
 ```mermaid

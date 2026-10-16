@@ -28,6 +28,11 @@ const ARVORE_DOCS = [
   { secao: 'Design', itens: [
     ['design/identidade-visual.md', 'Identidade Visual'],
   ]},
+  { secao: 'Modernização', itens: [
+    ['modernizacao/assessment-v29.md', 'Assessment v29'],
+    ['modernizacao/backend-fastapi.md', 'Backend FastAPI'],
+    ['modernizacao/backlog.md', 'Backlog'],
+  ]},
 ];
 
 // Menu superior: primeira página de cada seção
@@ -38,6 +43,7 @@ const NAV_TOPO = [
   ['pagina.html?doc=operacao/painel-admin.md', 'Operação'],
   ['pagina.html?doc=referencias/endpoints.md', 'Referências'],
   ['pagina.html?doc=design/identidade-visual.md', 'Design'],
+  ['pagina.html?doc=modernizacao/assessment-v29.md', 'Modernização'],
 ];
 
 function docAtual() {

@@ -57,6 +57,11 @@ flowchart LR
   F --> G
 ```
 
+> **Como está em produção (assessment de 09/10/2026):** as integrações O365/SharePoint estão
+> **desligadas**, então os pedidos seguem o caminho *mailto + PDF*. Eles **não são registrados no
+> banco e não baixam estoque** — o saldo exibido na vitrine fica superestimado (DAT-04). O
+> `POST /api/pedidos` com baixa atômica existe, mas ainda não é chamado (fase 2b).
+
 O pop-up de agradecimento mostra os próximos passos: validação do pedido, alinhamento do
 PIX (quando social) e entrega.
 

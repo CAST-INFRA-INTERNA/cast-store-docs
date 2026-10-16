@@ -9,4 +9,6 @@
 | Health `"ok":false` | API não alcança o MySQL | `.env` (host/senha), firewall, usuário/grants |
 | Login O365 não abre | Redirect URI não cadastrada como SPA | Registro do app no Azure |
 | Produto não aparece na loja | Pendente (sem foto/preço), oculto ou inativo | Completar no Catálogo e ativar |
+| `GET /api/data.js` retorna 500 | Um `nota_itens.dist_json` inválido no banco | Corrigir o JSON da nota; o backend FastAPI tolera o registro |
+| API Node cai após PATCH inválido ou banco fora do ar | Falta de `try/catch`/supervisor (assessment v29) | Reiniciar o serviço; aplicar o quick win de supervisor |
 | Arquivo `.env` "não existe" | Dotfile oculto no Finder/Explorer | Usar `env-exemplo.txt`; Cmd+Shift+. no Finder |

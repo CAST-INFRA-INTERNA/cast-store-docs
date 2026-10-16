@@ -30,8 +30,18 @@ Histórico de versões do projeto (resumo).
 | v2 | Login O365 (MSAL) + envio via Graph; unidades de retirada |
 | v1 | Loja + painel + identidade CAST; pedido por e-mail |
 
+## Modernização
+
+| Data | Entrega |
+|---|---|
+| 13/10/2026 | Backlog: BL-001 (assistente de pedido/kit com IA) registrado; leitura assistida de NF descartada |
+| 09/10/2026 | Backend FastAPI — Fase 2a (GO com ressalvas): defesa somente leitura, `admin/state` provisório, scripts de reconciliação, 187 testes |
+| 09/10/2026 | Backend FastAPI — fatia 1: catálogo público somente leitura |
+| 09/10/2026 | Assessment da v29: 103 regras, 19 divergências, 5 riscos prioritários |
+
 ## Documentação
 
 | Data | Mudança |
 |---|---|
+| 16/10/2026 | Nova seção **Modernização** (Assessment v29, Backend FastAPI, Backlog); avisos de risco e divergências nas páginas de loja, perfis, arquitetura, painel, endpoints, segurança e roadmap |
 | 01/10/2026 | Publicação do portal de documentação no GitHub Pages, a partir da documentação oficial v29 |

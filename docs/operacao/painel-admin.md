@@ -29,6 +29,9 @@ está no ar. As abas visíveis dependem do perfil: veja [Perfis de Acesso](../ne
   custo médio; preço promocional.
 - **Sem foto ou sem preço → "Pendente"** — não pode ser ativado na loja.
 
+> **Divergências a validar (assessment v29):** a "margem" calculada é, na prática, **markup**
+> sobre o custo (DIV-03); o placeholder conta como foto (DIV-02).
+
 ## Marketing
 
 Campanha ativa (Dia dos Pais, Natal, BlueDay... — selo 🎉 + filtro na vitrine),
@@ -52,6 +55,8 @@ Código, tipo (% ou R$), valor, escopo (compra inteira ou um produto), ativo/ina
 | C | restante |
 
 > O item que cruza a linha pertence à classe superior.
+>
+> **A validar (DIV-04):** hoje as avarias entram como consumo na curva ABC.
 
 - **Inventários por período:** semanal (ISO), mensal, trimestral, semestral e anual —
   entradas, saídas e saldo final por produto e destino, com prévia do período recente.
@@ -72,4 +77,4 @@ autenticação Office 365 (tenant/client ID), SharePoint (pedidos + estoque onli
 |---|---|
 | **Publicar no banco (API)** | Fluxo oficial da fase 2: grava todo o estado no MySQL em transação (fatiado automaticamente quando grande) |
 | **Baixar data.js** | Modo arquivo (plano B) — substituir o arquivo no servidor |
-| Rascunho | As edições ficam no navegador (localStorage) até publicar; há botão de descarte |
+| Rascunho | ⚠️ Publicar substitui o estado inteiro: quem publica por último sobrescreve as edições dos outros (DAT-01). As edições ficam no navegador (localStorage) até publicar; há botão de descarte |
