@@ -31,6 +31,7 @@ const ARVORE_DOCS = [
   { secao: 'Modernização', itens: [
     ['modernizacao/assessment-v29.md', 'Assessment v29'],
     ['modernizacao/backend-fastapi.md', 'Backend FastAPI'],
+    ['modernizacao/reuniao-2026-10-22.md', 'Reunião 22/10 — Review'],
     ['modernizacao/backlog.md', 'Backlog'],
   ]},
 ];

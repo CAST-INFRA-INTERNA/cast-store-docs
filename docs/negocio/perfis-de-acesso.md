@@ -33,5 +33,13 @@ o painel abre em modo de configuração inicial (como admin, com aviso).
 > validado na API, com App Roles `Store.Admin`, `Store.Manager`, `Store.Marketing` e
 > `Store.Purchasing` (ver [Backend FastAPI](../modernizacao/backend-fastapi.md)).
 
+## Modelo de acesso alvo (reunião 22/10/2026 — ADR-014, Proposta)
+
+- App Roles ligadas a **grupos do Entra ID**; a TI gere os membros.
+- Usuário autenticado **sem grupo = colaborador comum**, sem acesso administrativo.
+- Área administrativa em **`/admin`**.
+- Grupos por função: **TI (administração), Compras** (lança nota), **Facilities** (estoque e baixa) e **Marketing**.
+- **Em aberto:** Facilities vira role nova ou altera `Store.Manager` (I1).
+
 Veja também: [Painel de Administração](../operacao/painel-admin.md) e
 [Backup e Segurança](../operacao/backup-e-seguranca.md).

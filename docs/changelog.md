@@ -43,5 +43,6 @@ Histórico de versões do projeto (resumo).
 
 | Data | Mudança |
 |---|---|
+| 22/10/2026 | Registro da reunião "Cast Store \| Review" (decidido, incerto, em aberto, impacto técnico); modelo de acesso alvo em Perfis; piloto com login no Roadmap; BL-002 a BL-005 no Backlog |
 | 16/10/2026 | Nova seção **Modernização** (Assessment v29, Backend FastAPI, Backlog); avisos de risco e divergências nas páginas de loja, perfis, arquitetura, painel, endpoints, segurança e roadmap |
 | 01/10/2026 | Publicação do portal de documentação no GitHub Pages, a partir da documentação oficial v29 |

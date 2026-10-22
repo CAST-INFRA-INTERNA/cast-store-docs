@@ -43,6 +43,17 @@ e finaliza.
   da vitrine nos pedidos institucionais, encerrar.
 - **Reavaliar** quando o front novo estiver em andamento, o catálogo crescer ou kits ganharem volume.
 
+## Itens da reunião de 22/10/2026
+
+Sem regra de negócio definida — ver [Reunião 22/10](reuniao-2026-10-22.md).
+
+| ID | Item | Quando | Dependências |
+|---|---|---|---|
+| BL-002 | Histórico de compras por usuário | Pós-piloto | Entra ID; pedidos gravados no servidor |
+| BL-003 | Consulta do próprio saldo de moedas | Pós-piloto | Entra ID; Moedas-1 |
+| BL-004 | Cadastro/ajuste de saldo de moedas por pessoa, com grupo próprio de ajuste | Pós-piloto | Nova role/grupo (não definida); responsável do negócio (A4); estoque consumido (I2) |
+| BL-005 | Carga de produtos e fotos para o piloto | **Piloto** | Lista do negócio; script versionado e reversível, só no DSV |
+
 ## Ideias descartadas
 
 | Ideia | Decisão | Motivo |

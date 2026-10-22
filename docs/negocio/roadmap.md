@@ -26,6 +26,12 @@ Sequência recomendada pelo [Assessment v29](../modernizacao/assessment-v29.md),
 | Fase 2b — pedido no servidor | ⛔ Bloqueada por DAT-01 e SEC-03 |
 | Paralelismo com reconciliação → cutover | ⏳ A fazer |
 
+### Piloto (atualização 22/10/2026)
+
+O piloto passa a **exigir login Entra ID** — não é mais só navegação. Identidade e perfis (S3)
+entram no caminho crítico. Escopo de compra no piloto e autorização para trocar o servidor
+seguem em aberto. Ver [Reunião 22/10](../modernizacao/reuniao-2026-10-22.md).
+
 **Próximo passo:** executar os scripts da Fase 2a em homologação (`.env.hml` com usuário SELECT),
 fazer o stamp da baseline com o DBA e validar a imagem Docker aprovada.
 
