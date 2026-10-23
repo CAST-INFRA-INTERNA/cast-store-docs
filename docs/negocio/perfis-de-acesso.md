@@ -1,5 +1,9 @@
 # Perfis de Acesso do Painel
 
+> **Atualização 23/10/2026:** o fluxo-alvo usa **só Entra ID**; usuários locais (e-mail + senha) estão **obsoletos** (RN-05).
+> Os grupos Admin, Manager, Marketing e Purchasing **já foram criados**; membros dos grupos não administrativos pendentes (RN-06).
+> O texto abaixo descreve a v29 e é mantido como histórico.
+
 O acesso usa **Office 365 (Entra ID)** quando ativo — o grupo é definido pelo e-mail da
 conta — ou **usuários locais** (e-mail + senha com hash SHA-256). Sem nada configurado,
 o painel abre em modo de configuração inicial (como admin, com aviso).

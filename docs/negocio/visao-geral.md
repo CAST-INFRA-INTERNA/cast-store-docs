@@ -15,11 +15,13 @@ cupons e relatórios por um painel com perfis de acesso.
 - Identidade visual oficial CAST e regras de negócio da operação real (notas fiscais,
   estoque por destino, margens, curva ABC, inventários).
 
-## Estado atual (16/10/2026)
+## Estado atual (atualizado em 23/10/2026)
 
 | Frente | Situação |
 |---|---|
-| Loja e painel | **v29** em produção (HTML/JS puro + API Node.js + MySQL) |
+| Loja e painel legados | **v29** (HTML/JS puro + API Node.js + MySQL). A publicação legada **não deve ser considerada funcional** no servidor — ver [Estado dos Ambientes](../arquitetura/estado-ambientes.md) |
+| Nova versão | Vitrine React, FastAPI e proxy prontos e testados **localmente**; **não publicados** |
+| Regras de produto | [Regras de Negócio v1](regras-de-negocio.md) (23/10, em revisão) — prevalecem sobre a v29 quando conflitam |
 | Pedidos | Saem por **mailto + PDF**; ainda não são gravados no banco nem baixam estoque |
 | Modernização | [Assessment v29](../modernizacao/assessment-v29.md) concluído; [Backend FastAPI](../modernizacao/backend-fastapi.md) com a fatia 1 entregue e a Fase 2a em homologação |
 

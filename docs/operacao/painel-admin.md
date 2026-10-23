@@ -67,7 +67,7 @@ Código, tipo (% ou R$), valor, escopo (compra inteira ou um produto), ativo/ina
 ## Configurações (somente TI)
 
 Dados da loja (nome, e-mail dos pedidos, unidades, domínios permitidos, prazos),
-**grupos de acesso** (4 listas de e-mails), **usuários locais** (e-mail/senha/grupo),
+**grupos de acesso** (4 listas de e-mails), **usuários locais** (e-mail/senha/grupo — *obsoletos no fluxo-alvo, RN-05*),
 autenticação Office 365 (tenant/client ID), SharePoint (pedidos + estoque online) e
 **Banco de dados/API** (URL + chave — a chave fica apenas no navegador do admin).
 

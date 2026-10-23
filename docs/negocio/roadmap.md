@@ -26,6 +26,10 @@ Sequência recomendada pelo [Assessment v29](../modernizacao/assessment-v29.md),
 | Fase 2b — pedido no servidor | ⛔ Bloqueada por DAT-01 e SEC-03 |
 | Paralelismo com reconciliação → cutover | ⏳ A fazer |
 
+### Regras de produto (23/10/2026)
+
+RN-01 a RN-09 e as questões em aberto estão em [Regras de Negócio v1](regras-de-negocio.md).
+
 ### Piloto (atualização 22/10/2026)
 
 O piloto passa a **exigir login Entra ID** — não é mais só navegação. Identidade e perfis (S3)

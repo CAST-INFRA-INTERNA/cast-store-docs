@@ -5,6 +5,7 @@
 const ARVORE_DOCS = [
   { secao: 'Negócio', itens: [
     ['negocio/visao-geral.md', 'Visão Geral'],
+    ['negocio/regras-de-negocio.md', 'Regras de Negócio v1'],
     ['negocio/a-loja.md', 'A Loja'],
     ['negocio/perfis-de-acesso.md', 'Perfis de Acesso'],
     ['negocio/roadmap.md', 'Roadmap'],
@@ -13,6 +14,7 @@ const ARVORE_DOCS = [
     ['arquitetura/visao-geral.md', 'Visão Geral'],
     ['arquitetura/modelo-de-dados.md', 'Modelo de Dados'],
     ['arquitetura/integracoes.md', 'Integrações O365/SharePoint'],
+    ['arquitetura/estado-ambientes.md', 'Estado dos Ambientes'],
   ]},
   { secao: 'Operação', itens: [
     ['operacao/painel-admin.md', 'Painel de Administração'],
