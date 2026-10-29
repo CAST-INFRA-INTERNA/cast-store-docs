@@ -5,7 +5,7 @@
 const ARVORE_DOCS = [
   { secao: 'Negócio', itens: [
     ['negocio/visao-geral.md', 'Visão Geral'],
-    ['negocio/regras-de-negocio.md', 'Regras de Negócio v1.1 (MVP)'],
+    ['negocio/regras-de-negocio.md', 'Regras de Negócio v1.2 (MVP)'],
     ['negocio/a-loja.md', 'A Loja'],
     ['negocio/perfis-de-acesso.md', 'Perfis de Acesso'],
     ['negocio/roadmap.md', 'Roadmap'],
@@ -31,6 +31,7 @@ const ARVORE_DOCS = [
     ['design/identidade-visual.md', 'Identidade Visual'],
   ]},
   { secao: 'Modernização', itens: [
+    ['modernizacao/roadmap-implementacao.md', 'Roadmap de Implementação'],
     ['modernizacao/assessment-v29.md', 'Assessment v29'],
     ['modernizacao/backend-fastapi.md', 'Backend FastAPI'],
     ['modernizacao/reuniao-2026-10-22.md', 'Reunião 22/10 — Review'],

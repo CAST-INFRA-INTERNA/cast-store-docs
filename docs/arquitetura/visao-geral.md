@@ -60,5 +60,33 @@ flowchart TB
 
 Detalhes e status: [Backend FastAPI](../modernizacao/backend-fastapi.md).
 
+## Arquitetura-alvo proposta (29/10/2026 — aguardando aprovação)
+
+Análise de 29/10: o código já é um monolito modular, com ressalvas (ciclo entre `api` e módulos, `backoffice`
+concentrando cinco contextos, quatro escritores de `estoque_movimentos`). **Microsserviços: NO-GO** — pedido, estoque
+e moedas exigem transação única; não há gatilho de carga nem de equipe.
+
+```mermaid
+flowchart LR
+  U[Colaborador / equipes] -->|HTTPS · VPN| P[Proxy same-origin]
+  P -->|/ e /admin| S[SPA React]
+  P -->|/api/v1| A[API FastAPI<br/>monolito modular]
+  P -.->|só o que ainda não migrou| N[[Node legado]]
+  A <--> DB[(MySQL)]
+  W[Worker<br/>mesma imagem] <--> DB
+  W -.->|e-mail · backlog| M[Microsoft 365]
+  S -->|login PKCE| E[Entra ID]
+```
+
+- **Módulos donos das próprias tabelas:** identidade, catálogo, preços, estoque (escritor único), compras/NF, pedidos,
+  pagamentos, moedas (esqueleto), configuração, relatórios, documentos e auditoria.
+- **Estoque com reserva × baixa:** o pedido reserva; a baixa acontece na etapa configurada (resolve o "momento da baixa"
+  sem fixar a regra).
+- **Outbox + worker** para PDF, e-mail e rotinas, sem broker novo.
+- **Transição por capacidade:** vitrine → login → escrita de estoque/NF/produto/preço (com o publish do Node bloqueado)
+  → pedidos e PDF → painel React → desligar o Node.
+
+Plano completo em [Roadmap de Implementação](../modernizacao/roadmap-implementacao.md).
+
 Veja também: [Modelo de Dados](modelo-de-dados.md), [Endpoints da API](../referencias/endpoints.md)
 e [Instalação e Implantação](../operacao/instalacao.md).

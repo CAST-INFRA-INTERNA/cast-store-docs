@@ -20,6 +20,9 @@
 | Loja legada (v29) | **Não deve ser considerada funcional** no servidor |
 | Substituição do legado | **Não autorizada / não iniciada** |
 
+> Há registro de "aplicação publicada" em 28/10 no chat com o gestor; a evidência técnica do mesmo dia mostra
+> acesso apenas pela VPN. Vale a evidência técnica até novo teste.
+
 ## Impacto no MVP
 
 O MVP definido com o gestor exige pedido, escrita do painel e login — hoje desligados — além de telas do painel,

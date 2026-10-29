@@ -2,8 +2,9 @@
 
 | Metadado | Valor |
 |---|---|
-| Versão | **1.1 — rascunho para revisão** (v1.0 de 23/10/2026 substituída; diferenças em "Histórico desta página") |
+| Versão | **1.2 — rascunho para revisão** (v1.0 de 23/10 e v1.1 de 29/10 substituídas; ver "Histórico desta página") |
 | Data | 2026-10-29 |
+| Fonte de negócio de referência | Knowledge source do Projeto `cast-store-requisitos-reuniao-rafael.md` (fontes **F1** reunião "Review", **F2** chat de 28/10, **F3** anotações da reunião do MVP). Os IDs MVP-xx, CC-xx e o número das pendências (P-xx) seguem esse documento |
 | Origem | **Reunião de alinhamento do MVP com o gestor** (`docs/reunioes/alinhamento-mvp-gestor.md`; data exata da reunião não registrada nas anotações) · instrução de produto de 23/10/2026 · reunião "Cast Store \| Review" de 22/10/2026 · ADR-010, ADR-011, ADR-012, ADR-014 · documentação oficial v29 |
 | Precedência | Quando conflitar, vale a fonte **mais recente**. As afirmações substituídas ficam em "Divergências" |
 | Escopo | Regras de **produto**. A coluna "Situação" diz o que existe no código; "Documentado" não significa pronto |
@@ -18,18 +19,21 @@ reunião"; sem data registrada). O MVP inclui:
 
 | Item do MVP | Situação no código (29/10/2026) |
 |---|---|
-| Visualizar produtos (vitrine) | **Implementado** (React + catálogo FastAPI; homologação no ar só via VPN) |
-| Cadastrar e editar produtos (descrição, fotos, cores, variações) | Rotas de escrita **implementadas e desligadas** (`ADMIN_WRITE_ENABLED=false`); telas do painel em construção (fatias) |
-| Registrar entrada de notas | Rota implementada e **desligada**; tela pendente |
-| Separar estoque institucional × CPF | **Implementado** no modelo de dados (destino por movimento) |
-| Controlar estoque por unidade | Modelo tem `unidade` nas entradas; baixa do pedido grava unidade NULL (ADR-010) → **lacuna** |
-| Pedido por PIX (manual) | Pedido FastAPI implementado e **desligado** (`ORDERS_ENABLED=false`); fluxo manual de PIX **Documentado** |
-| Pedido institucional por centro de custo | Implementado na regra do pedido (CC/IC/CV) e **desligado**; finalidade **não existe** no código |
-| Registro do pedido | Implementado (desligado) |
-| PDF do pedido para download | **Não existe** na nova aplicação (existia na v29 via jsPDF) → lacuna |
-| Área administrativa para autorizados | Rotas protegidas por App Roles implementadas; **Entra ID desligado** na homologação |
+| MVP-01 Visualizar produtos (vitrine) | **Implementado** (React + catálogo FastAPI; homologação no ar só via VPN) |
+| MVP-02/03 Cadastrar e editar produtos (descrição, fotos, cores, variações) | Rotas de escrita **implementadas e desligadas** (`ADMIN_WRITE_ENABLED=false`); telas do painel em construção (fatias) |
+| MVP-04 Registrar entrada de notas | Rota implementada e **desligada**; tela pendente |
+| MVP-05 Separar estoque institucional × CPF | **Implementado** no modelo de dados (destino por movimento) |
+| MVP-06 Controlar estoque por unidade | Modelo tem `unidade` nas entradas; baixa do pedido grava unidade NULL (ADR-010) → **lacuna** |
+| MVP-07 Pedido por PIX (manual) | Pedido FastAPI implementado e **desligado** (`ORDERS_ENABLED=false`); fluxo manual de PIX **Documentado** |
+| MVP-08 Pedido institucional por centro de custo | Implementado na regra do pedido (CC/IC/CV) e **desligado**; finalidade **não existe** no código |
+| MVP-09 Registro do pedido | Implementado (desligado) |
+| MVP-09 PDF do pedido para download | **Não existe** na nova aplicação (existia na v29 via jsPDF) → lacuna |
+| MVP-10 Área administrativa para autorizados | Rotas protegidas por App Roles implementadas; **Entra ID desligado** na homologação |
 
 Fora do MVP: CAST Coins definitivo (RN-07) e as automações da seção "Adiado".
+
+**A confirmar (P-05):** se o piloto vende só por CPF/PIX, com pontos depois — perguntado ao gestor em 28/10, sem
+resposta escrita. O fluxo por pontos não foi descartado.
 
 ## RN-01 — Dois tipos de estoque e entrada por nota — Decidido
 
@@ -101,13 +105,17 @@ colaborador comum, sem login local. A reunião do MVP acrescenta: acesso adminis
 Decidido (direção):
 - Saldo individual; operação manual; **Marketing adiciona** moedas; **TI remove** saldo.
 - Moedas valem **somente para compras por CPF**. Pedido **institucional não usa moedas**.
+- Regras **configuráveis por produto** (ex.: R$ 29,90 **ou** preço reduzido + quantidade de moedas — F3).
+- **De qual estoque sai a compra por pontos continua pendente (P-07).** Em F1 os dois estoques foram descritos como
+  "vendas por CPF" e "vendas por pontos"; em F3, como "institucional" e "CPF". Não assumir.
 - Uso previsto: pagar integralmente, abater parte ou **combinar com pagamento financeiro** (misto).
 - Todo lançamento registra usuário afetado, quantidade, motivo, operador e data/hora; colaborador vê só o próprio saldo.
 - Débito só na confirmação da compra (momento exato acompanha Q-03b).
 
-A validar com o gestor (**Q-05, Q-06, Q-17**): equivalência moeda × real (R$ 0,05? R$ 0,10? outra); conversão
+A validar com o gestor (**Q-05, Q-06, Q-17 / CC-01…CC-06**): equivalência moeda × real (citados R$ 0,05 e R$ 0,10; a planilha de estoque traz ainda R$ 0,0098 e R$ 0,0059 como estudos); conversão
 única ou por produto; produtos elegíveis; efeito de campanhas na conversão; regra exata do pagamento misto
-(ex.: pedido de 1.050 moedas com saldo de 1.000 e diferença em dinheiro); expiração; correção; aprovação.
+(ex.: pedido de 1.050 moedas com saldo de 1.000 e diferença em dinheiro); quais opções de pagamento o usuário vê (CC-06);
+expiração; correção; aprovação.
 
 A estrutura (livro-razão, ADR-011) pode ser preparada; **nenhum valor de conversão ou regra de pagamento misto
 deve ser codificado como fixo**. Situação: **Documentado** (ADR-011 Proposto); nada implementado.
@@ -177,6 +185,21 @@ Microsoft 365 é evolução).
 
 **Tipos de pedido:** se "pedido social" é um terceiro tipo ou a própria venda por CPF: **Q-24**.
 
+## RN-13 — Relatórios financeiros — Decidido (F3)
+
+O sistema apresenta estoque **recebido** e **vendido**, **valores de custo**, **saldo bruto**, **taxas de PIX** e
+**resultado das vendas CPF**. O lucro bruto das vendas CPF é contabilizado em **conta distinta** da venda
+institucional; na institucional registra-se **apenas o custo e o débito do centro de custo**.
+
+Situação: relatórios de estoque, ABC, inventário e exports existem (backoffice, escrita desligada não afeta leitura);
+**taxas de PIX, resultado CPF e conta distinta não existem** → requer `payments` (ADR-012) e o módulo de relatórios.
+
+## RN-14 — Visibilidade do produto na loja — Decidido (F3)
+
+Produto só aparece na loja quando tem **preço** e **estoque**. (A v29 já marcava "Pendente" o produto sem foto ou sem
+preço; a regra de estoque é nova.) Situação: o catálogo atual mostra produto sem estoque como "Esgotado" e trata
+produto sem movimento como ilimitado (P-01 de `lacunas.md`) → **divergência DV-10**.
+
 ## Adiado (backlog — não faz parte do MVP)
 
 Confirmação de recebimento pelo solicitante (válida, não prioritária) · encerramento automático após a entrega ·
@@ -211,8 +234,12 @@ bloqueado na VPN; corte do legado não autorizado.
 | DV-05 | Pedido sem login | v29 §6.3 | Pedido vinculado ao usuário Entra ID | Obsoleto |
 | DV-06 | Piloto só navegação | backlog 20/10 | Login no piloto (22/10) | Atualizado |
 | DV-07 | Total recebido = institucional + CPF (exato) | v29 §7.1 | Impedir soma **maior** que o recebido | **A validar (Q-25):** sobra não destinada é permitida? |
-| DV-08 | Marketing edita preço/promoção | RN-06 v1.0, matriz | Marketing **não** altera custo, preço, estoque ou regras financeiras | Q-16 |
+| DV-08 | Marketing edita preço/promoção | RN-06 v1.0, matriz, **protótipo V30** ("Perfil Marketing edita nome, fotos, preços de venda e promocionais") e doc. v29 §5 | Marketing **não** altera custo, preço, estoque ou regras financeiras | Q-16 |
 | DV-09 | Baixa na confirmação da compra | RN-03 v1.0 | Momento exato da baixa em aberto no fluxo manual | Q-03b |
+| DV-10 | Produto sem estoque aparece como "Esgotado"; sem movimento = ilimitado | Catálogo implementado / v29 | Só visível com preço **e** estoque | Ajuste no catálogo antes do MVP |
+| DV-11 | Aplicação publicada em `store.cast4it.com` às 13:47 de 28/10 | Requisitos §10.1 (F2) | KS de deploy de 28/10: homologação só pela VPN (8080 OK, 8443 bloqueada); corte não autorizado | Prevalece o KS de deploy (evidência técnica) |
+| DV-12 | Estoques "CPF × pontos" | F1 | "CPF × institucional" | P-07 |
+| DV-13 | NF exige `institucional + cpf == total` | Código (`backoffice/rules.py`) | Requisito F3: soma **≤** total | Q-25 (destino da sobra) |
 
 ## Questões em aberto (não são regras)
 
@@ -245,6 +272,11 @@ bloqueado na VPN; corte do legado não autorizado.
 | Q-24 | "Pedido social" é um terceiro tipo ou a venda por CPF? | Gestor |
 | Q-25 | Entrada pode deixar quantidade sem destino (CPF + inst. < recebida)? | Gestor |
 | Q-26 | Conteúdo e destinatários do futuro e-mail do pedido | Gestor |
+| Q-27 | Dados da carga: preços, estoque inicial CPF × institucional, itens 12/13 (polos? tamanhos?), canecas azul/rosa como cores da caneca de alumínio, xícaras doadas (venda ou institucional) | Gestor |
+| Q-28 | Acesso aos arquivos compartilhados (planilha de estoque, mockups) | Gestor · dona técnica |
+| Q-29 | Quem valida a finalidade do pedido institucional | Gestor |
+| Q-30 | Unidade de saída do estoque em entrega em casa | Gestor |
+| Q-31 | Quem acessa a aplicação publicada e procedimento para usuários fora da rede | Gestor · Segurança |
 
 ## Histórico desta página
 
@@ -252,3 +284,4 @@ bloqueado na VPN; corte do legado não autorizado.
 |---|---|---|
 | 1.0 | 23/10/2026 | RN-01 a RN-09 a partir da instrução de produto |
 | 1.1 | 29/10/2026 | Reunião do MVP: RN-00, RN-10, RN-11, RN-12; RN-01 revertida (DV-01); RN-03, RN-06 e RN-07 reabertas; Q-13 respondida; Q-15 a Q-26 |
+| 1.2 | 29/10/2026 | Alinhada ao knowledge source de requisitos (F1/F2/F3): IDs MVP; RN-13 relatórios; RN-14 visibilidade; estoque das compras por pontos volta a pendente (P-07); DV-10 a DV-13; Q-27 a Q-31 |

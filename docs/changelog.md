@@ -43,6 +43,7 @@ Histórico de versões do projeto (resumo).
 
 | Data | Mudança |
 |---|---|
+| 29/10/2026 | **Regras v1.2** alinhadas ao knowledge source de requisitos (IDs MVP, relatórios financeiros, visibilidade, estoque das compras por pontos pendente, DV-10 a DV-14, Q-27 a Q-31); **Roadmap de Implementação** (estado atual × futuro, fases R0–R4 e T1–T6); arquitetura-alvo proposta na Visão Geral da Arquitetura |
 | 29/10/2026 | **Regras de Negócio v1.1** a partir da reunião do MVP com o gestor: escopo do MVP, precificação, usuários inativos e fluxo de pedido PIX manual/centro de custo; **RN-01 revertida** (institucional não usa moedas; moedas só no CPF); perfis e moedas reabertos; Q-15 a Q-26. Página da reunião do MVP; Estado dos Ambientes atualizado para a homologação de 28/10 |
 | 23/10/2026 | **Regras de Negócio v1** (RN-01 a RN-09, divergências DV-01 a DV-06, questões Q-01 a Q-13); **Estado dos Ambientes**; avisos de histórico em A Loja e Perfis; IP interno removido da página da reunião; status da home sem "v29 em produção" |
 | 22/10/2026 | Registro da reunião "Cast Store \| Review" (decidido, incerto, em aberto, impacto técnico); modelo de acesso alvo em Perfis; piloto com login no Roadmap; BL-002 a BL-005 no Backlog |
