@@ -1,38 +1,31 @@
-# Estado dos ambientes — CAST Store
+# Estado dos Ambientes
 
 | Metadado | Valor |
 |---|---|
-| Versão | 1.0 — rascunho para revisão |
-| Data | 2026-10-23 |
-| Origem | Instrução de produto de 23/10/2026 · reunião de 22/10/2026 · relatório de status de 21/10/2026 · `runbook-piloto.md` |
-| Regra deste documento | Só se afirma "publicado" ou "operacional" com **evidência técnica** registrada na coluna "Evidência" |
+| Versão | 1.1 — 29/10/2026 (estado técnico de 28/10/2026) |
+| Observação | Versão resumida para o portal. Detalhes operacionais e de segurança ficam no runbook interno (acesso restrito) |
 
-## Situação confirmada
+## Situação
 
-| Item | Situação | Evidência |
-|---|---|---|
-| Domínio `store.cast4it.com` | Tratado como **DNS interno** (resolve com VPN/rede interna). **Não há evidência de publicação externa** | Reunião 22/10; sem teste externo registrado |
-| Publicação legada (v29) no servidor | **Não deve ser descrita como funcional** | Instrução de 23/10; o painel publica no endereço errado (relatório 21/10, item 30) |
-| Acesso SSH ao servidor | **Depende de liberação pela Segurança** | Chamado #495532 (acesso ao MySQL DSV/logs) ainda pendente |
-| Portas e TLS | **Precisam de validação** pela Infra (correções prontas só em branch: porta direta da API, cadeia TLS) | Relatório 21/10, itens 34–35 |
-| Certificado | Reemissão com chave nova pendente (A3 da reunião 22/10) | — |
-| Vitrine React / FastAPI / proxy novo | Prontos e testados **localmente**; **não aplicados** no servidor | Relatório 21/10 |
-| Login Entra ID | Código pronto; **login real não validado** | `cast-store-backend/docs/security/entra-id-registro.md` |
+| Item | Situação |
+|---|---|
+| Nova CAST Store (FastAPI + React) | Homologação **em execução**, isolada, acessível **somente pela rede corporativa/VPN** |
+| HTTP | Acessível pela VPN |
+| HTTPS | Validado no servidor; liberação na VPN **pendente** |
+| Certificado definitivo | **Pendente de emissão** |
+| Login Entra ID | Código pronto; **desligado** na homologação |
+| Pedidos e escrita do painel | **Desligados** (flags) |
+| Banco | Leitura, sem migrações |
+| Publicação externa | **Não existe** evidência; o domínio é tratado como DNS interno |
+| Loja legada (v29) | **Não deve ser considerada funcional** no servidor |
+| Substituição do legado | **Não autorizada / não iniciada** |
 
-## Pré-requisitos para publicação (piloto ou produção)
+## Impacto no MVP
 
-1. **HTTPS** com certificado válido e cadeia completa.
-2. **Redirect URI** do app SPA no Entra ID correspondente **exatamente** à URL publicada.
-3. **Validações da Segurança** (critérios do piloto ainda não definidos — Q-11) e, para acesso fora da rede
-   interna, certificado SSL e aprovação explícita (D8 de 22/10).
-4. Autorização do negócio para substituir o que está no servidor (A2 de 22/10), com backup conferido.
-5. Portas e regras de firewall validadas pela Infra (Q-10).
+O MVP definido com o gestor exige pedido, escrita do painel e login — hoje desligados — além de telas do painel,
+checkout e PDF ainda em construção. Ver [Regras de Negócio](../negocio/regras-de-negocio.md) (RN-00).
 
-Enquanto esses itens não tiverem evidência, os documentos devem dizer "pronto localmente" ou
-"pendente de validação", nunca "publicado".
+## Pré-requisitos para publicar
 
-## Questões em aberto
-
-- Q-10 URL, TLS, portas e redirect URI do ambiente publicado — TI/Infra · Segurança.
-- Q-11 Critérios de segurança para liberar o piloto — Segurança.
-- Acesso SSH — Segurança.
+Certificado definitivo · liberação HTTPS na VPN · redirect URI do Entra ID · aceite funcional do gestor ·
+aceite de Infra e Segurança · plano de rollback · autorização formal do corte.

@@ -5,7 +5,7 @@
 const ARVORE_DOCS = [
   { secao: 'Negócio', itens: [
     ['negocio/visao-geral.md', 'Visão Geral'],
-    ['negocio/regras-de-negocio.md', 'Regras de Negócio v1'],
+    ['negocio/regras-de-negocio.md', 'Regras de Negócio v1.1 (MVP)'],
     ['negocio/a-loja.md', 'A Loja'],
     ['negocio/perfis-de-acesso.md', 'Perfis de Acesso'],
     ['negocio/roadmap.md', 'Roadmap'],
@@ -34,6 +34,7 @@ const ARVORE_DOCS = [
     ['modernizacao/assessment-v29.md', 'Assessment v29'],
     ['modernizacao/backend-fastapi.md', 'Backend FastAPI'],
     ['modernizacao/reuniao-2026-10-22.md', 'Reunião 22/10 — Review'],
+    ['modernizacao/reuniao-alinhamento-mvp.md', 'Reunião — Alinhamento do MVP'],
     ['modernizacao/backlog.md', 'Backlog'],
   ]},
 ];

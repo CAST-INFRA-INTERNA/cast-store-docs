@@ -1,8 +1,8 @@
 # A Loja (`index.html`)
 
 > **Documento da v29 (histórico).** Quando houver conflito, valem as [Regras de Negócio v1](regras-de-negocio.md) (23/10/2026):
-> toda compra exige login Entra ID (RN-04/05), o estoque institucional passa a ser o da operação por CAST Coins (RN-01, divergência DV-01)
-> e a baixa ocorre só na confirmação (RN-03). O envio sem login (mailto + PDF) e o pedido institucional com CC/IC/CV ficam como histórico.
+> toda compra exige login Entra ID (RN-04/05), o pedido institucional continua por centro de custo e **sem** moedas, que valem só para o CPF (RN-01/RN-07, v1.1);
+> o pedido CPF é pago por PIX manual (RN-12) e o momento exato da baixa está em aberto (RN-03). O envio sem login fica como histórico.
 
 A loja é a parte pública do portal: vitrine, página do produto, carrinho, checkout e
 "Meus pedidos", tudo em um único arquivo com JavaScript embutido.

@@ -26,9 +26,16 @@ Sequência recomendada pelo [Assessment v29](../modernizacao/assessment-v29.md),
 | Fase 2b — pedido no servidor | ⛔ Bloqueada por DAT-01 e SEC-03 |
 | Paralelismo com reconciliação → cutover | ⏳ A fazer |
 
-### Regras de produto (23/10/2026)
+### Etapas de produto (reunião do MVP, 29/10/2026)
 
-RN-01 a RN-09 e as questões em aberto estão em [Regras de Negócio v1](regras-de-negocio.md).
+| Etapa | Conteúdo |
+|---|---|
+| 1 — Primeira versão vendável | Produtos, notas, custo e margem, estoque CPF × institucional por unidade, pedido PIX manual e institucional, PDF, acesso administrativo |
+| 2 — Validação operacional | Acessos, quantidades, baixa, fluxos CPF/institucional, retirada e rastreio, ajustes do painel |
+| 3 — CAST Coins | Conversão, elegíveis, pagamento misto, gestão de saldo, inativos |
+| 4 — Automações | Recebimento, encerramento, Microsoft 365, PIX automático, QR Code, entrega |
+
+Regras e questões em aberto: [Regras de Negócio v1.1](regras-de-negocio.md).
 
 ### Piloto (atualização 22/10/2026)
 
